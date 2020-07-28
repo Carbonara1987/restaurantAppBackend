@@ -17,6 +17,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', 'HomeController@index')->name('home');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/createTable', 'TablesController@createTable');
+Route::get('/getTables', 'TablesController@getTables');
+Route::put('/updateTable/{id}', 'TablesController@updateTable');
+Route::post('/deleteTable/{id}', 'TablesController@deleteTable');
+Route::post('/createCategory', 'CategoriesController@createCategory');
+Route::get('/getCategories', 'CategoriesController@getCategories');
+Route::put('/updateCategory/{id}', 'CategoriesController@updateCategory');
+Route::post('/deleteCategory/{id}', 'CategoriesController@deleteCategory');
+Route::post('/createProduct', 'ProductsController@createProduct');
+Route::get('/getProducts', 'ProductsController@getProducts');
+Route::put('/updateProduct/{id}', 'ProductsController@updateProduct');
+Route::post('/deleteProduct/{id}', 'ProductsController@deleteProduct');
+
+
