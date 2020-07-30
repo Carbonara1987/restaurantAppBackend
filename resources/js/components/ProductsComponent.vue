@@ -113,7 +113,7 @@
                 })
                     .then(function (response) {
                         console.log(response);
-                        this.getCategories();
+                        vm.getCategories();
                     })
                     .catch(function (error) {
                         vm.output = error;
@@ -160,7 +160,7 @@
                     notes: vm.product_notes
                 })
                     .then(function (response) {
-                        this.getProducts();
+                        vm.getProducts();
                     })
                     .catch(function (error) {
                         vm.output = error;
@@ -224,10 +224,10 @@
                     });
             },
             deleteProduct(id){
+                var vm = this;
                 axios.post('http://localhost/phpStormProjects/restaurantAppBackEnd/public/index.php/deleteProduct/'+ id)
                     .then(function () {
-                        console.log(response);
-                        this.getProducts();
+                        vm.getProducts();
                     })
                     .catch(function (error) {
                         console.log(error);

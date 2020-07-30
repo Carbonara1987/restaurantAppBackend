@@ -35,5 +35,8 @@ Route::post('/createProduct', 'ProductsController@createProduct');
 Route::get('/getProducts', 'ProductsController@getProducts');
 Route::put('/updateProduct/{id}', 'ProductsController@updateProduct');
 Route::post('/deleteProduct/{id}', 'ProductsController@deleteProduct');
+Route::options('/{path}', function(){
+    return '';
+})->where('path', '.*');
 
 
