@@ -7,7 +7,21 @@ use App\Products;
 
 class ProductsController extends Controller
 {
-    public function createProduct(Request $request){
+    public static function upload(){
+
+        $xmlFile = file_get_contents('./data/products.xml');
+
+
+        //$xml = new SimpleXMLElement($destinationPath, null, true);
+
+        $products = XmlToArray::convert($xmlFile);
+
+
+        return $products;
+    }
+
+    public function createProduct(Request $request)
+    {
         $product = Products::create($request->all());
         return response()->json($product);
     }
